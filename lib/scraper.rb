@@ -1,8 +1,4 @@
-#requiring gems/modules
-require "/Users/Mackenzie/Desktop/RubyWork/ten_largest_cities/config/environment.rb"
-require 'nokogiri'
-require 'open-uri'
-#require 'pry'
+
 
 class Scraper
 

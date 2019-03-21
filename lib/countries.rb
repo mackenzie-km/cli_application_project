@@ -1,4 +1,3 @@
-require "/Users/Mackenzie/Desktop/RubyWork/ten_largest_cities/config/environment.rb"
 
 class Country
   attr_accessor :info_link, :name, :abbreviation, :largest_cities_link
@@ -15,6 +14,7 @@ class Country
 
 #This displays all of the country objects
   def self.all
+    @@all.sort! {|a,b| a.name <=> b.name}
     @@all
   end
 
@@ -28,6 +28,11 @@ class Country
 
   def self.find_by_name(name)
       self.all.detect { |x| x.name == name }
+  end
+
+  def self.lookup_cities(name)
+    country = self.find_by_name(name)
+    country = CityScraper.new(country)
   end
 
   def largest_cities_link
