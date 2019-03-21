@@ -9,6 +9,8 @@ class Country
     @name = name
     @abbreviation = abbreviation
     @info_link = info_link
+    l_name = name.downcase.gsub(" ", "-")
+    @largest_cities_link = "https://www.geonames.org/#{self.abbreviation}/largest-cities-in-#{l_name}.html"
     @@all << self
   end
 
@@ -18,16 +20,19 @@ class Country
     @@all
   end
 
-  def self.all_names
+  def self.search_all_names(input)
+    input = input.to_s
     result = []
-    self.all.each_with_index do |v, i|
-      result << "#{i} - #{v.name}"
+    self.all.each do |v|
+      if input == v.name[0]
+      result << "#{v.name}"
     end
+  end
     result
   end
 
-  def self.find_by_name(name)
-      self.all.detect { |x| x.name == name }
+  def self.find_by_name(input)
+      self.all.detect { |x| x.name.downcase == input }
   end
 
   def self.lookup_cities(name)
@@ -35,9 +40,10 @@ class Country
     country = CityScraper.new(country)
   end
 
-  def largest_cities_link
-    name = self.name.downcase.gsub(" ", "-")
-    @largest_cities_link = "https://www.geonames.org/#{self.abbreviation}/largest-cities-in-#{name}.html"
+  def info
+    puts "Country Name: #{self.name}"
+    puts "Country Abbreviation: #{self.abbreviation}"
+    puts "Country Info link: #{self.info_link}"
   end
 
 end

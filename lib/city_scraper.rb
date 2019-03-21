@@ -4,43 +4,42 @@ class CityScraper
   def initialize(country)
     @country = country
     @city_table = open_page
-    city_table = collect_cities
-    create_cities(city_table)
+    chunked = collect_cities
+    create_cities(chunked)
   end
 
   def open_page
     html = open(self.country.largest_cities_link)
-    city_table = Nokogiri::HTML(html).css('table.restable.sortable')
-    city_table = city_table.css('tr', 'td').collect {|l| l}
+    city_table = Nokogiri::HTML(html).css('table.restable.sortable').css('td')
+    city_table = city_table.css('tr').collect {|l| l}
     city_table
   end
+
 
   def collect_cities
     result = []
     chunked = []
-      city_table.collect do |n|
-          city_data = n.text.split("\n")
-          city_data.reject!(&:empty?)
-          result << city_data
+      city_table.each_with_index do |v, i|
+        if i > 0 && v.children.text.length > 2
+          data = v.children.text
+          result << data
+        end
       end
-      #SOME ISSUES STILL WITH FORMATTING & CHECK THAT CITIES R BUILT
-      puts result
-      result
+    result
 
     while result.length > 3
       chunked << result.slice!(0,3)
     end
     chunked
-
   end
 
-  def create_cities(city_table)
-    city_table.each do |city|
-      city_name = city[1]
-      population = city[2]
-      location = city[0]
+  def create_cities(chunked)
+    chunked.each do |city|
+      city_name = city[0]
+      population = city[1]
+      location = city[2]
       country = self.country.name
-      name = City.new(city_name, population, location, country)
+      new = City.new(city_name, population, location, country)
     end
   end
 

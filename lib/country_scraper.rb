@@ -49,5 +49,4 @@ def create_countries(country_table)
     end
 end
 
-#binding.pry
 end

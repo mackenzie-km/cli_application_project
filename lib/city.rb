@@ -18,4 +18,12 @@ class City
     @@all
   end
 
+  def self.info
+  self.all.collect do |city|
+      puts "City name: #{city.city_name}"
+      puts "City population: #{city.population}"
+      puts "City latitude & longitude: #{city.location}/n"
+    end
+  end
+
 end
