@@ -1,8 +1,7 @@
 #!/usr/bin/env ruby
 require_relative '../config/environment'
 
-cli = Cli.new
-cli.start
+Cli.new.start
 
 
   # Current bugs/things to seek help for:
@@ -12,7 +11,7 @@ cli.start
   # regex (like /\W\W,\W/) or string (gsub, etc.) methods.
   # 3) Strange characters? Like "GuantÃ¡namo  , GuantÃ¡namo"
 
-  # Tomorrow to-dos
-  # 1) May be good to add .reset feature to classes in concern bin
-  # 2) DRY...
-  # 3) Walkthrough
+  # Goals before lunch
+  # 1) Load reset feature
+  # 2) Walkthrough & blog post
+  # 3) colorize

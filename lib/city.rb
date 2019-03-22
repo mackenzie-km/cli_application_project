@@ -1,5 +1,6 @@
 
 class City
+  extend Deletable::ClassMethods
   attr_accessor :city_name, :population, :location, :country
 
   @@all = []
@@ -18,6 +19,7 @@ class City
     @@all
   end
 
+#this allows the user to see the desired city data displayed
   def self.info
     i = 0
   self.all.collect do |city|
