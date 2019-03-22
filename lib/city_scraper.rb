@@ -10,11 +10,10 @@ class CityScraper
 
   def open_page
     html = open(self.country.largest_cities_link)
-    city_table = Nokogiri::HTML(html).css('table.restable.sortable').css('td')
-    city_table = city_table.css('tr').collect {|l| l}
+    data = Nokogiri::HTML(html).css('table.restable.sortable').css('td')
+    city_table = data.css('td').collect {|l| l}
     city_table
   end
-
 
   def collect_cities
     result = []
@@ -34,13 +33,13 @@ class CityScraper
   end
 
   def create_cities(chunked)
-    chunked.each do |city|
+    chunked.collect do |city|
       city_name = city[0]
       population = city[1]
       location = city[2]
       country = self.country.name
       new = City.new(city_name, population, location, country)
+      new
     end
   end
-
 end

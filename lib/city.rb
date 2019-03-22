@@ -19,10 +19,15 @@ class City
   end
 
   def self.info
+    i = 0
   self.all.collect do |city|
-      puts "City name: #{city.city_name}"
-      puts "City population: #{city.population}"
-      puts "City latitude & longitude: #{city.location}/n"
+      puts "#{i}. #{city.city_name}"
+      puts "Population: #{city.population}"
+      puts "Coordinates: #{city.location}"
+      country_object = Country.find_by_name(city.country)
+      puts "Link: #{country_object.largest_cities_link}"
+      puts "\n"
+      i += 1
     end
   end
 

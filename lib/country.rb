@@ -32,7 +32,7 @@ class Country
   end
 
   def self.find_by_name(input)
-      self.all.detect { |x| x.name.downcase == input }
+      self.all.detect { |x| x.name == input }
   end
 
   def self.lookup_cities(name)
