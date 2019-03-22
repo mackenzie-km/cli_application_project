@@ -2,13 +2,13 @@ class Cli
 attr_accessor :country
 
 def start
-  Scraper.new
   puts "\nHello there. Please choose which country you'd like to learn about!"
   puts "Please input the first letter of the country name - or type 'exit'."
   letter = gets.strip.upcase
     if letter == "EXIT"
       finished
     elsif (letter != "EXIT" && Country.search_all_names(letter) != nil)
+        Scraper.new
         list = Country.search_all_names(letter)
         puts "\n"
         puts list
@@ -48,6 +48,9 @@ end
 
 def finished
 puts "\nThat's all I got! Please check out the links provided for additional info."
+puts "#{self.country.largest_cities_link}"
+puts "#{self.country.info_link}"
+puts "\n"
 end
 
 end
