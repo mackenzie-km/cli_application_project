@@ -1,5 +1,4 @@
 class Scraper
-  extend Deletable::ClassMethods
 #Scraper.new pulls methods together: open the page, scrape, and instantiate new countries
   def initialize
     country_table = open_page

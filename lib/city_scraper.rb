@@ -1,6 +1,5 @@
 
 class CityScraper
-  extend Deletable::ClassMethods
   attr_accessor :country, :city_table
 
   #initialize runs the scraper through the required methods of opening, collecting, creating cities
@@ -24,7 +23,7 @@ class CityScraper
     result = []
     chunked = []
       city_table.each_with_index do |v, i|
-        if i > 0 && v.children.text.length > 2
+        if (i > 0 && v.children.text.length > 2)
           data = v.children.text
           result << data
         end
@@ -32,7 +31,7 @@ class CityScraper
     result
 
 #collects 3 data points and associates them together
-    while result.length > 3
+    while result.length > 2
       chunked << result.slice!(0,3)
     end
     chunked
@@ -46,7 +45,6 @@ class CityScraper
       location = city[2]
       country = self.country.name
       new = City.new(city_name, population, location, country)
-      new
     end
   end
 end

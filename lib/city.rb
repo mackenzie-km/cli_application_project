@@ -1,6 +1,5 @@
 
 class City
-  extend Deletable::ClassMethods
   attr_accessor :city_name, :population, :location, :country
 
   @@all = []
@@ -23,11 +22,11 @@ class City
   def self.info
     i = 0
   self.all.collect do |city|
-      puts "#{i+1}. #{city.city_name}"
+      puts "#{i+1}. #{city.city_name}".light_blue
       puts "Population: #{city.population}"
       puts "Coordinates: #{city.location}"
-      puts "\n"
       i += 1
+      puts "\n"
     end
   end
 

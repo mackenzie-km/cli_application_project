@@ -1,7 +1,6 @@
 
 class Country
   attr_accessor :country_link, :name, :abbreviation, :largest_cities_link
-  extend Deletable::ClassMethods
   @@all = []
 
 #This uses the scraped information to make new countries
@@ -43,7 +42,7 @@ class Country
 
 #this allows the user to see the data displayed
   def info
-    puts "Country Name: #{self.name}"
+    puts "Country Name: #{self.name}".light_blue
     puts "Country Abbreviation: #{self.abbreviation}"
     puts "Country Info link: #{self.country_link}"
   end
