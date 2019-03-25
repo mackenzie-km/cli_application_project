@@ -7,9 +7,13 @@ Original data credited to https://www.geonames.org/countries/
 
 ## Installation & useage
 Clone repository.
+
 $ cd downloads (or appropriate location where file has been saved)
+
 $ cd ten_largest_cities-master
+
 $ bin/run.rb
+
 Follow the colorized on-screen prompts.
 
 
