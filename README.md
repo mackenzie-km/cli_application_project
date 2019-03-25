@@ -5,12 +5,12 @@ This Ruby Gem provides a CLI to view country facts and city facts per the Geonam
 Original data credited to https://www.geonames.org/countries/
 
 
-## Installation
-$ gem install ten-largest-cities
-
-
-## Usage
-Type ten-largest-cities and follow the colorized on-screen prompts.
+## Installation & useage
+Clone repository.
+$ cd downloads (or appropriate location where file has been saved)
+$ cd ten_largest_cities-master
+$ bin/run.rb
+Follow the colorized on-screen prompts.
 
 
 ## Contributing
