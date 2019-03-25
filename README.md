@@ -38,4 +38,4 @@ Any feedback is welcome.
 
 
 ## License
-This gem is available as open source under the terms of the MIT License
+This gem is available as open source under the terms of the MIT License https://opensource.org/licenses/MIT
