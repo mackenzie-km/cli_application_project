@@ -22,6 +22,16 @@ Please help us all learn!
 
 Please visit GitHub at https://github.com/mackenzie-km/ten_largest_cities to check out the repo.
 
+## Known Bugs/Issues
+We are currently experiencing an encoding issue with the output of some city names.
+
+When a city name has an accent mark in it, such as Ōsaka, the letter changes (example: Å).
+These strings do not respond to .unicode_normalize.
+These strings are displaying as UTF-8 when city_name.encoding is called.
+It also returns true for valid_encoding?
+
+Any feedback is welcome.
+
 
 ## License
 This gem is available as open source under the terms of the MIT License
