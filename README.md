@@ -12,7 +12,7 @@ $ cd downloads (or appropriate location where file has been saved)
 
 $ cd ten_largest_cities-master
 
-$ bin/run.rb
+$ ruby bin/run.rb
 
 Follow the colorized on-screen prompts.
 
