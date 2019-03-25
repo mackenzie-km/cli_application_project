@@ -23,7 +23,10 @@ class CityScraper
     result = []
     chunked = []
       city_table.each_with_index do |v, i|
-        if (i > 0 && v.children.text.length > 2)
+        if (i > 0 && v.children.text.length > 2 && v.children.first.text != v.children.last.text)
+          data = v.children.first.text.concat(v.children.last.text)
+          result << data
+        elsif (i > 0 && v.children.text.length > 2 && v.children.first.text == v.children.last.text)
           data = v.children.text
           result << data
         end

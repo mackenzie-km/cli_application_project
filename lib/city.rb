@@ -22,12 +22,11 @@ class City
   def self.info
     i = 0
   self.all.collect do |city|
-      puts "#{i+1}. #{city.city_name}".light_blue
+      puts "#{i+=1}. #{city.city_name}".light_blue
       puts "Population: #{city.population}"
       puts "Coordinates: #{city.location}"
-      i += 1
-      puts "\n"
     end
+      puts "\n"
   end
 
 end

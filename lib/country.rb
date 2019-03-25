@@ -31,7 +31,7 @@ class Country
 
 #this allows you to look up a country object by country name
   def self.find_by_name(input)
-      self.all.detect { |x| x.name == input }
+      self.all.detect { |x| x.name.downcase == input }
   end
 
 #looking up cities via using country object to initiate the city scraper
