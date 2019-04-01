@@ -56,7 +56,7 @@ end
 #finishes program
 def finished
   puts "\n"
-  puts "Do you want to learn about a new country? (Y/N)"
+  puts "Do you want to learn about a new country? (Y/N)".blue
   continue = gets.strip.upcase
     if continue == "Y"
       Country.all.clear
