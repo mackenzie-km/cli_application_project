@@ -42,7 +42,7 @@ class Country
 
 #this allows the user to see the data displayed
   def info
-    puts "Country Name: #{self.name}"
+    puts "Country Name: #{self.name}".blue
     puts "Country Abbreviation: #{self.abbreviation}"
     puts "Country Info link: #{self.country_link}"
   end
